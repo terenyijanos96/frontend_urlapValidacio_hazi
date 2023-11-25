@@ -1,7 +1,9 @@
+import TextUrlapView from "./TextUrlapVIew.js";
 import { adatLeiras } from "./adat.js";
 
 export default class UrlapView {
   #formAdat = {};
+  #inputElemObjektumokLista = []; //itt tároljujk azokat az objektumokat, amelyek létrehozzák a form elemeket
   constructor(szuloElem) {
     szuloElem.append("<form>");
     this.formElem = szuloElem.find("form");
@@ -16,31 +18,17 @@ export default class UrlapView {
 
     this.submitElem = this.formElem.find("#submit");
 
-    this.nevElem = this.formElem.find("#nev");
-    this.SzulEvElem = this.formElem.find("#szul_ev");
     this.submitElem.on("click", (event) => {
       event.preventDefault();
-      this.#formAdat.nev = this.nevElem.val();
-      this.#formAdat.szul = this.SzulEvElem.val();
+      this.#inputElemObjektumokLista.forEach((elem) => {
+        
+        this.#formAdat[elem.key] = elem.getValue()
+      });
+
 
       this.trigger("ujAdatHozzaadasa");
     });
-  }
 
-  textUrlapElem(obj, key) {
-    let txt = `
-    <div class="mb-3 mt-3">
-        <label for="${key}" class="form-label">${obj.megjelenes}:</label>
-        <input type="${obj.tipus}" 
-            class="form-control" 
-            id="${key}" 
-            placeholder="${obj.placeholder}" 
-            pattern="${obj.pattern}" 
-            value="${obj.value}" 
-            name="${key}">
-    </div>`;
-
-    return txt;
   }
 
   numberUrlapElem(obj, key) {
@@ -65,14 +53,20 @@ export default class UrlapView {
     for (const key in adatLeiras) {
       switch (adatLeiras[key].tipus) {
         case "text":
-            txt += this.textUrlapElem(adatLeiras[key], key);
-            break;
-      
+          this.#inputElemObjektumokLista.push(
+            new TextUrlapView(this.formElem, adatLeiras[key], key)
+          );
+          break;
+
         case "number":
-            txt += this.numberUrlapElem(adatLeiras[key], key);
-            break;
+          break;
       }
     }
+    txt += `<div class="mb-3 mt-3">
+        <input type="submit"  
+        id="submit" 
+        value="Küld">
+    </div>`;
 
     this.formElem.append(txt);
   }
