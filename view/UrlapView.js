@@ -1,51 +1,25 @@
 import TextUrlapView from "./TextUrlapVIew.js";
+import NumberUrlapView from "./NumberUrlapView.js";
 import { adatLeiras } from "./adat.js";
 
 export default class UrlapView {
   #formAdat = {};
-  #inputElemObjektumokLista = []; //itt tároljujk azokat az objektumokat, amelyek létrehozzák a form elemeket
+  #inputElemObjektumokLista = [];
   constructor(szuloElem) {
     szuloElem.append("<form>");
     this.formElem = szuloElem.find("form");
 
     this.htmlOsszeallit();
-    /** Submit gomb kezelése
-     * 1. létrehozom a gombhoz a "kapaszkodót"
-     * 2. hozzárendelem az eseményt
-     * 3. ebben az eseményben  összegyűjtö9m a form adatait
-     * 4. elküldöm a controllernek
-     */
-
     this.submitElem = this.formElem.find("#submit");
 
     this.submitElem.on("click", (event) => {
       event.preventDefault();
       this.#inputElemObjektumokLista.forEach((elem) => {
-        
-        this.#formAdat[elem.key] = elem.getValue()
+        this.#formAdat[elem.key] = elem.getValue();
       });
-
 
       this.trigger("ujAdatHozzaadasa");
     });
-
-  }
-
-  numberUrlapElem(obj, key) {
-    let txt = `
-    <div class="mb-3 mt-3">
-        <label for="${key}" class="form-label">${obj.megjelenes}:</label>
-        <input type="${obj.tipus}" 
-            class="form-control" 
-            id="${key}" 
-            placeholder="${obj.placeholder}" 
-            min="${obj.pattern.min}" 
-            max="${obj.pattern.max}" 
-            value="${obj.value}" 
-            name="${key}">
-    </div>`;
-
-    return txt;
   }
 
   htmlOsszeallit() {
@@ -59,6 +33,9 @@ export default class UrlapView {
           break;
 
         case "number":
+          this.#inputElemObjektumokLista.push(
+            new NumberUrlapView(this.formElem, adatLeiras[key], key)
+          );
           break;
       }
     }
