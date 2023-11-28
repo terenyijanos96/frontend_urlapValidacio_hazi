@@ -9,18 +9,13 @@ export default class TextUrlapView {
     this.textUrlapElem();
 
     this.inputElem = this.szuloElem.find("#" + this.key);
-    this.inputElem.on("keyup", (event) => {
+    this.inputElem.on("keyup", () => {
       this.#value = this.inputElem.val();
       
-      // itt fogunk validálni
-      let patternString = this.obj.pattern; //reguláris kifejezés
-      let pattern = new RegExp(patternString); //reguláris kifejezés átalakítása reguláris objektummá
+      let patternString = this.obj.pattern; 
+      let pattern = new RegExp(patternString);
       
-      if (pattern.test(this.#value)) {
-        this.#valid = true;
-      } else {
-        this.#valid = false;
-      }
+      this.#valid = pattern.test(this.#value)
       console.log(this.#value)
       console.log(this.#valid)
       

@@ -1,4 +1,4 @@
-import TextUrlapView from "./TextUrlapVIew.js";
+import TextUrlapView from "./TextUrlapView.js";
 import NumberUrlapView from "./NumberUrlapView.js";
 import { adatLeiras } from "./adat.js";
 
@@ -39,6 +39,7 @@ export default class UrlapView {
           break;
       }
     }
+
     txt += `<div class="mb-3 mt-3">
         <input type="submit"  
         id="submit" 
