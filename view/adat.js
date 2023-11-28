@@ -3,7 +3,7 @@ export const adatLeiras = {
         megjelenes : "Vezetéknév",
         tipus : "text",
         placeholder : "Valaki vagyok",
-        pattern : "^[A-Z][a-z]{3}$",
+        pattern : "^[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]{3,}$",
         szoveg : "Legalább 3 betű, a névnek nagybetűvel kell kezdődnie!",
         required : true,
         value: ""
@@ -13,7 +13,7 @@ export const adatLeiras = {
         megjelenes : "Keresztnév",
         tipus : "text",
         placeholder : "Valaki vagyok",
-        pattern : "^[A-Z][a-z]{3}$",
+        pattern : "^[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]{3,}$",
         szoveg : "Legalább 3 betű, a névnek nagybetűvel kell kezdődnie!",
         required : true,
         value: ""
