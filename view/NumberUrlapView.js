@@ -1,4 +1,6 @@
 export default class NumberUrlapView {
+  #value
+  #valid = false;
   constructor(szuloElem, obj, key) {
     this.szuloElem = szuloElem;
     this.obj = obj;
@@ -7,10 +9,25 @@ export default class NumberUrlapView {
     this.numberUrlapElem();
 
     this.inputElem = this.szuloElem.find("#" + this.key);
+
+    this.inputElem.on("input", () => {
+      const min = this.obj.pattern.min;
+      const max = this.obj.pattern.max;
+
+      this.#value = parseInt(this.inputElem.val());
+
+      this.#valid = min <= this.#value && this.#value <= max;
+      
+      console.log(this.getValid())
+    });
   }
 
   getValue() {
-    return this.inputElem.val();
+    return this.#value
+  }
+
+  getValid() {
+    return this.#valid
   }
 
   numberUrlapElem() {
