@@ -2,7 +2,7 @@ export const adatLeiras = {
     vezetekNev: {
         megjelenes : "Vezetéknév",
         tipus : "text",
-        placeholder : "Valaki vagyok",
+        placeholder : "pl.: Gipsz",
         pattern : "^[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]{3,}$",
         szoveg : "Legalább 3 betű, a névnek nagybetűvel kell kezdődnie!",
         required : true,
@@ -12,7 +12,7 @@ export const adatLeiras = {
     keresztNev: {
         megjelenes : "Keresztnév",
         tipus : "text",
-        placeholder : "Valaki vagyok",
+        placeholder : "pl.: Jakab",
         pattern : "^[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]{3,}$",
         szoveg : "Legalább 3 betű, a névnek nagybetűvel kell kezdődnie!",
         required : true,
@@ -25,5 +25,10 @@ export const adatLeiras = {
         value : "2000",
         pattern : {min : "1000", max: "2500"},
         szoveg : "1000 és 2500 közötti számot adhat meg",
+    },
+
+    submit: {
+        tipus: "submit",
+        value: "Küld"
     }
 }

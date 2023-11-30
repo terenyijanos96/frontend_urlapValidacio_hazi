@@ -1,5 +1,6 @@
 import TextUrlapView from "./TextUrlapView.js";
 import NumberUrlapView from "./NumberUrlapView.js";
+import SumitUrlapView from "./SubmitUrlapView.js";
 import { adatLeiras } from "./adat.js";
 
 export default class UrlapView {
@@ -23,7 +24,6 @@ export default class UrlapView {
   }
 
   htmlOsszeallit() {
-    let txt = "";
     for (const key in adatLeiras) {
       switch (adatLeiras[key].tipus) {
         case "text":
@@ -35,18 +35,14 @@ export default class UrlapView {
         case "number":
           this.#inputElemObjektumokLista.push(
             new NumberUrlapView(this.formElem, adatLeiras[key], key)
-          ); 
+          );
+          break;
+
+        case "submit":
+          new SumitUrlapView(this.formElem, adatLeiras[key], key);
           break;
       }
     }
-
-    txt += `<div class="mb-3 mt-3">
-        <input type="submit"  
-        id="submit" 
-        value="Küld">
-    </div>`;
-
-    this.formElem.append(txt);
   }
 
   trigger(esemenynev) {
