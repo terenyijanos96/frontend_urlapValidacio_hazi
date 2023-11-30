@@ -1,35 +1,46 @@
 export default class TextUrlapView {
   #value = "";
   #valid = false;
+  #inputElem;
   constructor(szuloElem, obj, key) {
     this.szuloElem = szuloElem;
     this.obj = obj;
     this.key = key;
 
     this.textUrlapElem();
+    this.setInputElem();
 
-    this.inputElem = this.szuloElem.find("#" + this.key);
-    this.inputElem.on("keyup", () => {
-      this.#value = this.inputElem.val();
-      
-      let patternString = this.obj.pattern; 
+    this.#inputElem.on("input", () => {
+      this.#value = this.#inputElem.val();
+
+      let patternString = this.obj.pattern;
       let pattern = new RegExp(patternString);
-      
-      this.#valid = pattern.test(this.#value)
-      console.log(this.#value)
-      console.log(this.#valid)
-      
+
+      this.#valid = pattern.test(this.#value);
     });
   }
 
   getValue() {
-    return this.inputElem.val();
+    return this.#inputElem.val();
   }
 
-  getValid(){
-    return this.#valid
+  getValid() {
+    return this.#valid;
   }
 
+  setInputElem() {
+    this.#inputElem = this.szuloElem.find("#" + this.key);
+  }
+
+  getInputElem() {
+    return this.#inputElem;
+  }
+
+  validalasFormazas() {
+    this.#inputElem.toggleClass("is-valid", this.#valid)
+    this.#inputElem.toggleClass("is-invalid", !this.#valid)
+  }
+  
   textUrlapElem() {
     let txt = `
         <div class="mb-3 mt-3">

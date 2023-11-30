@@ -1,40 +1,54 @@
 export default class NumberUrlapView {
-  #value
+  #value;
   #valid = false;
+  #inputElem;
   constructor(szuloElem, obj, key) {
     this.szuloElem = szuloElem;
     this.obj = obj;
     this.key = key;
 
     this.numberUrlapElem();
+    this.setInputElem();
+    this.setValue();
+    this.setValid();
 
-    this.inputElem = this.szuloElem.find("#" + this.key);
-
-    this.setValue()
-
-    this.inputElem.on("input", () => {
-      this.setValue()
-
-      const min = this.obj.pattern.min;
-      const max = this.obj.pattern.max;
-      const ertek = this.getValue()
-
-      this.#valid = min <= ertek && ertek <= max;
-      
-      console.log(this.getValid())
+    this.#inputElem.on("input", () => {
+      this.setValue();
+      this.setValid();
     });
   }
 
-  setValue(){
-    this.#value = parseInt(this.inputElem.val());
+  setValue() {
+    this.#value = parseInt(this.#inputElem.val());
   }
 
   getValue() {
-    return this.#value
+    return this.#value;
+  }
+
+  setValid() {
+    const min = this.obj.pattern.min;
+    const max = this.obj.pattern.max;
+    const ertek = this.#value;
+
+    this.#valid = min <= ertek && ertek <= max;
   }
 
   getValid() {
-    return this.#valid
+    return this.#valid;
+  }
+
+  setInputElem() {
+    this.#inputElem = this.szuloElem.find("#" + this.key);
+  }
+
+  getInputElem() {
+    return this.#inputElem;
+  }
+
+  validalasFormazas() {
+    this.#inputElem.toggleClass("is-valid", this.#valid)
+    this.#inputElem.toggleClass("is-invalid", !this.#valid)
   }
 
   numberUrlapElem() {
@@ -44,7 +58,6 @@ export default class NumberUrlapView {
         <input type="${this.obj.tipus}" 
             class="form-control" 
             id="${this.key}" 
-            placeholder="${this.obj.placeholder}" 
             min="${this.obj.pattern.min}" 
             max="${this.obj.pattern.max}" 
             value="${this.obj.value}" 

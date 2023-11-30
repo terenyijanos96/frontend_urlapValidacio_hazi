@@ -6,6 +6,7 @@ import { adatLeiras } from "./adat.js";
 export default class UrlapView {
   #formAdat = {};
   #inputElemObjektumokLista = [];
+  #validInputLista = [];
   constructor(szuloElem) {
     szuloElem.append("<form>");
     this.formElem = szuloElem.find("form");
@@ -15,11 +16,22 @@ export default class UrlapView {
 
     this.submitElem.on("click", (event) => {
       event.preventDefault();
+      this.#validInputLista = [];
+
       this.#inputElemObjektumokLista.forEach((elem) => {
         this.#formAdat[elem.key] = elem.getValue();
+        if (elem.getValid()) {
+          this.#validInputLista.push(elem);
+        }
+
+        elem.validalasFormazas()
       });
 
-      this.trigger("ujAdatHozzaadasa");
+      if (
+        this.#validInputLista.length === this.#inputElemObjektumokLista.length
+      ) {
+        this.trigger("ujAdatHozzaadasa");
+      }
     });
   }
 
