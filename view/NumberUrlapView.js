@@ -10,16 +10,23 @@ export default class NumberUrlapView {
 
     this.inputElem = this.szuloElem.find("#" + this.key);
 
+    this.setValue()
+
     this.inputElem.on("input", () => {
+      this.setValue()
+
       const min = this.obj.pattern.min;
       const max = this.obj.pattern.max;
+      const ertek = this.getValue()
 
-      this.#value = parseInt(this.inputElem.val());
-
-      this.#valid = min <= this.#value && this.#value <= max;
+      this.#valid = min <= ertek && ertek <= max;
       
       console.log(this.getValid())
     });
+  }
+
+  setValue(){
+    this.#value = parseInt(this.inputElem.val());
   }
 
   getValue() {
