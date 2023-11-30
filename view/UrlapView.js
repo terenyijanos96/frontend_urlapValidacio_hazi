@@ -35,7 +35,7 @@ export default class UrlapView {
         case "number":
           this.#inputElemObjektumokLista.push(
             new NumberUrlapView(this.formElem, adatLeiras[key], key)
-          );
+          ); 
           break;
       }
     }
