@@ -6,7 +6,7 @@ export default class UrlapModel {
   async getData(uri, callback) {
     try {
       const response = await axios.get(uri);
-      callback(response);
+      callback(response.data);
     } catch (error) {
       console.log(error);
     }

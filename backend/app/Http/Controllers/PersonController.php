@@ -23,10 +23,4 @@ class PersonController extends Controller
         $person->szul = $request->szul;
         $person->save();
     }
-
-    /*
-    vezetekNev
-    keresztNev
-    szul
-    */
 }
