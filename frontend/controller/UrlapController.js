@@ -8,7 +8,7 @@ export default class UrlapController {
         new UrlapView($(".urlap"))
 
         $(window).on("ujAdatHozzaadasa", (event)=>{
-            dataService.post("urlap", event.detail)
+            dataService.post("people", event.detail)
         })
     }
 
