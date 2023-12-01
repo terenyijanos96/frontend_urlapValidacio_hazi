@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
-            $table->string('last_name');
-            $table->string('first_name');
-            $table->smallInteger('birth_year');
+            $table->string('vezetekNev');
+            $table->string('keresztNev');
+            $table->smallInteger('szul');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     * 
      */
     public function down(): void
     {

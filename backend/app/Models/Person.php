@@ -10,8 +10,8 @@ class Person extends Model
     use HasFactory;
 
     protected $fillable = [
-        'last_name',
-        'first_name',
-        'birth_year',
+        'vezetekNev',
+        'keresztNev',
+        'szul',
     ];
 }

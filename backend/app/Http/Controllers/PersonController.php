@@ -18,9 +18,15 @@ class PersonController extends Controller
 
     public function store(Request $request){
         $person = new Person();
-        $person->last_name = $request->last_name;
-        $person->first_name = $request->first_name;
-        $person->birth_year = $request->birth_year;
+        $person->vezetekNev = $request->vezetekNev;
+        $person->keresztNev = $request->keresztNev;
+        $person->szul = $request->szul;
         $person->save();
     }
+
+    /*
+    vezetekNev
+    keresztNev
+    szul
+    */
 }
