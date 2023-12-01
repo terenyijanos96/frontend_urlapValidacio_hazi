@@ -3,36 +3,37 @@ export default class UrlapModel {
     axios.defaults.baseURL = "http://localhost:8000/api/";
   }
 
-  async get(uri, callback) {
+  async getData(uri, callback) {
     try {
-      const response = await axios(uri);
+      const response = await axios.get(uri);
       callback(response);
     } catch (error) {
       console.log(error);
     }
   }
 
-  async post(uri, data) {
+  async postData(uri, data) {
     try {
-      const response = await axios(uri, data);
+      console.log(data)
+      const response = await axios.post(uri, data);
       console.log(response);
     } catch (error) {
       console.log(error);
     }
   }
 
-  async put(uri, id, data) {
+  async putData(uri, id, data) {
     try {
-      const response = await axios(uri + "/" + id, data);
+      const response = await axios.put(uri + "/" + id, data);
       console.log(response);
     } catch (error) {
       console.log(error);
     }
   }
 
-  async delete(uri, id) {
+  async deleteData(uri, id) {
     try {
-      const response = await axios(uri + "/" + id);
+      const response = await axios.delete(uri + "/" + id);
       console.log(response);
     } catch (error) {
       console.log(error);
