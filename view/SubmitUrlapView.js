@@ -18,7 +18,7 @@ export default class SubmitUrlapView {
   }
 
   submitUrlapElem() {
-    let txt = `<div class="mb-3 mt-3">
+    let txt = `<div class="mb-3 mt-5 ">
       <input class="btn btn-outline-success" 
         type="${this.obj.tipus}"  
         id="${this.key}" 
