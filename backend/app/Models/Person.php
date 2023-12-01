@@ -13,5 +13,5 @@ class Person extends Model
         'last_name',
         'first_name',
         'birth_year',
-    ]
+    ];
 }
