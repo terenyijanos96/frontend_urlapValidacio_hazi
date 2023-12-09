@@ -32,3 +32,12 @@ export const adatLeiras = {
         value: "Küld"
     }
 }
+
+
+export const fejlec = {
+    id: "Azonosító",
+    vezetekNev: "Vezetéknév",
+    keresztNev: "Keresztnév",
+    szul: "Szül. év",
+
+}

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Person;
 
 return new class extends Migration
 {
@@ -18,6 +19,24 @@ return new class extends Migration
             $table->smallInteger('szul');
             $table->timestamps();
         });
+		
+		Person::create([
+			'vezetekNev' => 'Alig',
+			'keresztNev' => 'Elek',
+			'szul' => 1990
+		]);
+		
+		Person::create([
+			'vezetekNev' => 'Teszt',
+			'keresztNev' => 'Elek',
+			'szul' => 2000
+		]);
+		
+		Person::create([
+			'vezetekNev' => 'Mekk',
+			'keresztNev' => 'Elek',
+			'szul' => 2000
+		]);
     }
 
     /**

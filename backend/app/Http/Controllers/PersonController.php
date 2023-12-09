@@ -23,4 +23,9 @@ class PersonController extends Controller
         $person->szul = $request->szul;
         $person->save();
     }
+	
+	public function destroy($id){
+		Person::find($id)->delete();
+		
+	}
 }

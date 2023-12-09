@@ -1,6 +1,6 @@
-import UrlapView from "../view/UrlapView.js"
+import UrlapView from "../view/Urlap/UrlapView.js"
 import UrlapModel from "../model/UrlapModel.js"
-import ListaView from "../view/ListaView.js"
+import TablazatView from "../view/Tablazat/TablazatView.js"
 
 
 export default class UrlapController {
@@ -13,10 +13,20 @@ export default class UrlapController {
         $(window).on("ujAdatHozzaadasa", (event)=>{
             dataService.postData("people", event.detail)
         })
+
+        $(window).on("sorTorlese", (event)=>{
+            dataService.deleteData("people", event.detail.id)
+        })
+
+        
+        $(window).on("sorModositasa", (event)=>{
+            dataService.putData("people", event.detail.id)
+        })
     }
 
     megjelenit(lista){
-        new ListaView(lista, $(".lista"))
+        new TablazatView(lista, $(".lista"))
+
     }
 
 }
