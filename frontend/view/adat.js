@@ -1,30 +1,34 @@
 export const adatLeiras = {
-    vezetekNev: {
-        megjelenes : "Vezetéknév",
+    producer: {
+        megjelenes : "Gyártónév",
         tipus : "text",
-        placeholder : "pl.: Gipsz",
+        placeholder : "pl.: Coca Cola",
         pattern : "^[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]{3,}$",
-        szoveg : "Legalább 3 betű, a névnek nagybetűvel kell kezdődnie!",
         required : true,
         value: ""
     },
 
-    keresztNev: {
-        megjelenes : "Keresztnév",
+    productName: {
+        megjelenes : "Terméknév",
         tipus : "text",
-        placeholder : "pl.: Jakab",
-        pattern : "^[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]{3,}$",
-        szoveg : "Legalább 3 betű, a névnek nagybetűvel kell kezdődnie!",
+        placeholder : "pl.: Kóla üdítő",
+        pattern : "^[A-ZÁÉÍÓÖŐÚÜŰ]?[a-záéíóöőúüű]+$",
         required : true,
         value: ""
     },
 
-    szul: {
-        megjelenes : "Születési év",
+    productPrice: {
+        megjelenes : "Ár (Ft)",
         tipus : "number",
         value : "2000",
-        pattern : {min : "1000", max: "2500"},
-        szoveg : "1000 és 2500 közötti számot adhat meg",
+        pattern : {min : "0", max: "250000"},
+    },
+
+    stock: {
+        megjelenes : "Készlet (db)",
+        tipus : "number",
+        value : "0",
+        pattern : {min : "0", max: "500"},
     },
 
     submit: {
@@ -36,8 +40,8 @@ export const adatLeiras = {
 
 export const fejlec = {
     id: "Azonosító",
-    vezetekNev: "Vezetéknév",
-    keresztNev: "Keresztnév",
-    szul: "Szül. év",
-
+    producer: "Gyártónév",
+    productName: "Terméknév",
+    productPrice: "Ár (Ft)",
+    stock: "Készlet (db)",
 }

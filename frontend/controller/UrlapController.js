@@ -8,23 +8,23 @@ export default class UrlapController {
         const dataService = new UrlapModel()
         new UrlapView($(".urlap"))
 
-        dataService.getData("people", this.megjelenit)
+        dataService.getData("products", this.megjelenit)
 
         $(window).on("ujAdatHozzaadasa", (event)=>{
-            dataService.postData("people", event.detail)
+            dataService.postData("products", event.detail)
         })
 
         $(window).on("sorTorlese", (event)=>{
-            dataService.deleteData("people", event.detail.id)
+            dataService.deleteData("products", event.detail.id)
         })
 
         $(window).on("sorModositasa", (event)=>{
-            dataService.putData("people", event.detail.id, event.detail.adat)
+            dataService.putData("products", event.detail.id, event.detail.adat)
         })
     }
 
     megjelenit(lista){
-        new TablazatView(lista, $(".lista"))
+        new TablazatView(lista, $(".tablazat"))
 
     }
 
