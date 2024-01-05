@@ -19,7 +19,8 @@ export default class TablazatView {
   }
 
   #htmlLetrehozo() {
-    this.#szuloElem.append(`<table class="table table-striped">
+    this.#szuloElem.append(`
+      <table class="table table-striped">
             <tbody></tbody>
             <thead></thead>
        </table>`);

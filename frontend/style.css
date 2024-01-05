@@ -1,0 +1,5 @@
+.lista input[disabled] {
+    background: none;
+    border: 0;
+    color: #000;
+}

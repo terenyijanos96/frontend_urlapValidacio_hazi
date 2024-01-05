@@ -17,6 +17,7 @@ export default class UrlapModel {
       console.log(data)
       const response = await axios.post(uri, data);
       console.log(response);
+      location.reload(); 
     } catch (error) {
       console.log(error);
     }
@@ -26,6 +27,7 @@ export default class UrlapModel {
     try {
       const response = await axios.put(uri + "/" + id, data);
       console.log(response);
+      location.reload(); 
     } catch (error) {
       console.log(error);
     }
@@ -35,6 +37,7 @@ export default class UrlapModel {
     try {
       const response = await axios.delete(uri + "/" + id);
       console.log(response);
+      location.reload(); 
     } catch (error) {
       console.log(error);
     }

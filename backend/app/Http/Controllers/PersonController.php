@@ -23,6 +23,14 @@ class PersonController extends Controller
         $person->szul = $request->szul;
         $person->save();
     }
+
+    public function update($id, Request $request){
+        $person = Person::find($id);
+        $person->vezetekNev = $request->vezetekNev;
+        $person->keresztNev = $request->keresztNev;
+        $person->szul = $request->szul;
+        $person->save();
+    }
 	
 	public function destroy($id){
 		Person::find($id)->delete();

@@ -18,9 +18,8 @@ export default class UrlapController {
             dataService.deleteData("people", event.detail.id)
         })
 
-        
         $(window).on("sorModositasa", (event)=>{
-            dataService.putData("people", event.detail.id)
+            dataService.putData("people", event.detail.id, event.detail.adat)
         })
     }
 
