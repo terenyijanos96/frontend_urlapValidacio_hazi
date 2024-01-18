@@ -12,7 +12,7 @@ export const adatLeiras = {
         megjelenes : "Terméknév",
         tipus : "text",
         placeholder : "pl.: Kóla üdítő",
-        pattern : "^[A-ZÁÉÍÓÖŐÚÜŰ]?[a-záéíóöőúüű]+$",
+        pattern : "^([A-ZÁÉÍÓÖŐÚÜŰ]?[a-záéíóöőúüű]+\s?)+",
         required : true,
         value: ""
     },
@@ -31,6 +31,15 @@ export const adatLeiras = {
         pattern : {min : "0", max: "500"},
     },
 
+    productPhoto: {
+        megjelenes : "Fotó (elérési útvonal)",
+        tipus : "text",
+        value: "",
+        placeholder: "pl.: images/cola.jpg",
+        pattern : "^.+\.(jpg|png|jpeg|bmp)$",
+        required : true,
+    },
+
     submit: {
         tipus: "submit",
         value: "Küld"
@@ -44,4 +53,5 @@ export const fejlec = {
     productName: "Terméknév",
     productPrice: "Ár (Ft)",
     stock: "Készlet (db)",
+    productPhoto: "Fotó (elérési útvonal)",
 }

@@ -20,10 +20,13 @@ export default class TablazatView {
 
   #htmlLetrehozo() {
     this.#szuloElem.append(`
+    <div class="table-responsive">
       <table class="table table-striped">
             <tbody></tbody>
             <thead></thead>
-       </table>`);
+      </table>
+    </div>`
+       );
   }
 
   sorMegjelenito() {

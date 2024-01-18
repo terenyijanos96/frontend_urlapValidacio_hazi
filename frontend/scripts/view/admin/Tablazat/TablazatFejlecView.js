@@ -1,4 +1,4 @@
-import { fejlec } from "../adat.js";
+import { fejlec } from "../../adat.js";
 
 export default class TablazatFejlecView {
   #szuloElem;

@@ -13,6 +13,7 @@ class Product extends Model
         'producer',
         'productName',
         'productPrice',
-        'stock'
+        'stock',
+        'productPhoto'
     ];
 }

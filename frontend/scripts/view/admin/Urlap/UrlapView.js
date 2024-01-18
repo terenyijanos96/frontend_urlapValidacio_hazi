@@ -1,7 +1,7 @@
 import TextUrlapView from "./TextUrlapView.js";
 import NumberUrlapView from "./NumberUrlapView.js";
 import SumitUrlapView from "./SubmitUrlapView.js";
-import { adatLeiras } from "../adat.js";
+import { adatLeiras } from "../../adat.js";
 
 export default class UrlapView {
   #formAdat = {};

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('productName');
             $table->integer('productPrice');
             $table->integer('stock');
+            $table->string('productPhoto');
             $table->timestamps();
         });
 
@@ -27,6 +28,7 @@ return new class extends Migration
             'productName' => 'Kóla üdítőital',
             'productPrice' => '400',
             'stock' => '500',
+            'productPhoto' => 'images/cola.jpg'
         ]);
 
         Product::create([
@@ -34,6 +36,7 @@ return new class extends Migration
             'productName' => 'Ketchup',
             'productPrice' => '1099',
             'stock' => '150',
+            'productPhoto' => 'images/ketchup.jpg'
         ]);
 
         Product::create([
@@ -41,6 +44,16 @@ return new class extends Migration
             'productName' => 'Balaton szelet',
             'productPrice' => '169',
             'stock' => '400',
+            'productPhoto' => 'images/balaton.jpg'
+        ]);
+
+
+        Product::create([
+            'producer' => 'Szamos',
+            'productName' => 'Csokoládé torta',
+            'productPrice' => '15000',
+            'stock' => '29',
+            'productPhoto' => 'images/torta.jpg'
         ]);
     }
 

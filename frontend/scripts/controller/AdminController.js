@@ -1,11 +1,10 @@
-import UrlapView from "../view/Urlap/UrlapView.js"
-import UrlapModel from "../model/UrlapModel.js"
-import TablazatView from "../view/Tablazat/TablazatView.js"
-
+import Model from "../model/Model.js"
+import UrlapView from "../view/admin/Urlap/UrlapView.js"
+import TablazatView from "../view/admin/Tablazat/TablazatView.js"
 
 export default class UrlapController {
     constructor(){
-        const dataService = new UrlapModel()
+        const dataService = new Model()
         new UrlapView($(".urlap"))
 
         dataService.getData("products", this.megjelenit)

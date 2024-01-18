@@ -1,4 +1,4 @@
-import { adatLeiras } from "../adat.js";
+import { adatLeiras } from "../../adat.js";
 
 export default class TablazatSorView {
   #szuloElem;

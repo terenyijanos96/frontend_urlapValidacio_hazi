@@ -26,6 +26,7 @@ class ProductController extends Controller
         $product->productName = $request->productName;
         $product->productPrice = $request->productPrice;
         $product->stock = $request->stock;
+        $product->productPhoto = $request->productPhoto;
         $product->save();
     }
 
@@ -36,6 +37,7 @@ class ProductController extends Controller
         $product->productName = $request->productName;
         $product->productPrice = $request->productPrice;
         $product->stock = $request->stock;
+        $product->productPhoto = $request->productPhoto;
         $product->save();
     }
 
